@@ -2,10 +2,10 @@ use super::super::host::abi::*;
 use anyhow::{bail, Result};
 
 enum LogLevel {
-    // Trace = 1,
-    // Debug,
+    Trace = 1,
+    Debug,
     Info,
-    // Warn,
+    Warn,
     Error,
 }
 
@@ -14,7 +14,7 @@ enum LogLevel {
 /// # Examples
 ///
 /// ```no_run
-/// use ws-sdk::log
+/// use ws-sdk::log::*
 /// log_info("hello world!")?;
 /// ```
 pub fn log_info(str: &str) -> Result<()> {
@@ -29,7 +29,7 @@ pub fn log_info(str: &str) -> Result<()> {
 /// # Examples
 ///
 /// ```no_run
-/// use ws-sdk::log
+/// use ws-sdk::log::*
 /// log_error("error!")?;
 /// ```
 pub fn log_error(str: &str) -> Result<()> {
