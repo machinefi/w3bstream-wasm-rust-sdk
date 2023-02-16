@@ -6,7 +6,7 @@ use anyhow::{bail, Result};
 /// # Examples
 ///
 /// ```no_run
-/// use ws-sdk::stream
+/// use ws-sdk::stream::get_data
 /// let data = get_data(rid)?;
 /// ```
 pub fn get_data(resource_id: u32) -> Result<Vec<u8>> {
@@ -23,7 +23,7 @@ pub fn get_data(resource_id: u32) -> Result<Vec<u8>> {
 /// # Examples
 ///
 /// ```no_run
-/// use ws-sdk::stream
+/// use ws-sdk::stream::set_data
 /// set_data(rid, data)?;
 /// ```
 pub fn set_data(resource_id: u32, data: Vec<u8>) -> Result<()> {

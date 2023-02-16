@@ -8,7 +8,7 @@ use anyhow::{bail, Result};
 /// # Examples
 ///
 /// ```no_run
-/// use ws-sdk::database::sql
+/// use ws-sdk::database::sql::execute
 /// execute("INSERT INTO table (ID, COUNT) VALUES (?, ?);", &[&0, &32])?;
 /// ```
 pub fn execute(prepared: &str, params: &[&dyn SQLType]) -> Result<()> {
@@ -30,7 +30,7 @@ pub fn execute(prepared: &str, params: &[&dyn SQLType]) -> Result<()> {
 /// # Examples
 ///
 /// ```no_run
-/// use ws-sdk::database::sql
+/// use ws-sdk::database::sql::query
 /// let ret = query("SELECT * FROM table;", &[])?;
 /// ```
 pub fn query(prepared: &str, params: &[&dyn SQLType]) -> Result<Vec<u8>> {

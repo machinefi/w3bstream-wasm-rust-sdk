@@ -17,7 +17,7 @@ struct Tx {
 /// # Examples
 ///
 /// ```no_run
-/// use ws-sdk::blockchain
+/// use ws-sdk::blockchain::send_tx
 /// let hash = send_tx(4689, "0x83c9fb5da807e4427b59b6c90b545496394abf98", "0", "")?;
 /// ```
 pub fn send_tx(chain_id: u32, to: &str, value: &str, data: &str) -> Result<String> {
@@ -54,7 +54,7 @@ struct Call {
 /// # Examples
 ///
 /// ```no_run
-/// use ws-sdk::blockchain
+/// use ws-sdk::blockchain::call_contract
 /// let hex = call_contract(4689, "0x83c9fb5da807e4427b59b6c90b545496394abf98", "");
 /// ```
 pub fn call_contract(chain_id: u32, to: &str, data: &str) -> Result<Vec<u8>> {
