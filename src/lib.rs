@@ -31,7 +31,7 @@
 //!
 //! #[no_mangle]
 //! pub extern "C" fn start(_: i32) -> i32 {
-//!     log_info("hello world!");
+//!     log_info("Hello World!");
 //!     return 0;
 //! }
 //! ```
