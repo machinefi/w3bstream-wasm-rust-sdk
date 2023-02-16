@@ -1,5 +1,5 @@
 [package]
-name = "log"
+name = "kv"
 version = "0.1.0"
 edition = "2021"
 
@@ -7,5 +7,5 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-ws-sdk = "0.1.6"
+ws-sdk = "0.1.8"
 anyhow = "1.0.69"

@@ -32,6 +32,6 @@
 //!
 pub mod blockchain;
 pub mod database;
-pub mod host;
+mod host;
 pub mod log;
 pub mod stream;

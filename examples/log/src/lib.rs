@@ -1,16 +1,6 @@
-use std::mem;
-
 use anyhow::Result;
-use ws_sdk::log::*;
-use ws_sdk::stream::*;
-
-#[no_mangle]
-pub extern "C" fn alloc(size: i32) -> *mut u8 {
-    let mut buf: Vec<u8> = Vec::with_capacity(size as _);
-    let ptr = buf.as_mut_ptr();
-    mem::forget(buf);
-    return ptr;
-}
+use ws_sdk::log::log_info;
+use ws_sdk::stream::get_data;
 
 #[no_mangle]
 pub extern "C" fn start(rid: i32) -> i32 {

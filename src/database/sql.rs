@@ -40,7 +40,7 @@ pub fn query(prepared: &str, params: &[&dyn SQLType]) -> Result<Vec<u8>> {
     };
     let encoded = &serde_json::to_string(&query)?;
     let data_ptr = &mut (0 as i32) as *const _ as *const *mut u8;
-    let data_size = &(0 as i32);
+    let data_size = &mut (0 as i32) as *const i32;
 
     match unsafe { ws_get_sql_db(encoded.as_ptr(), encoded.len() as _, data_ptr, data_size) } {
         0 => Ok(unsafe { Vec::from_raw_parts(*data_ptr, *data_size as _, *data_size as _) }),

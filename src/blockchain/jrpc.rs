@@ -28,7 +28,7 @@ pub fn send_tx(chain_id: u32, to: &str, value: &str, data: &str) -> Result<Strin
     };
     let str = serde_json::to_string(&tx)?;
     let data_ptr = &mut (0 as i32) as *const _ as *const *mut u8;
-    let data_size = &(0 as i32);
+    let data_size = &mut (0 as i32) as *const i32;
     match unsafe {
         ws_send_tx(
             chain_id as _,
@@ -64,7 +64,7 @@ pub fn call_contract(chain_id: u32, to: &str, data: &str) -> Result<Vec<u8>> {
     };
     let str = serde_json::to_string(&tx)?;
     let data_ptr = &mut (0 as i32) as *const _ as *const *mut u8;
-    let data_size = &(0 as i32);
+    let data_size = &mut (0 as i32) as *const i32;
     match unsafe {
         ws_call_contract(
             chain_id as _,

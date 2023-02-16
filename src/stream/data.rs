@@ -11,7 +11,7 @@ use anyhow::{bail, Result};
 /// ```
 pub fn get_data(resource_id: u32) -> Result<Vec<u8>> {
     let data_ptr = &mut (0 as i32) as *const _ as *const *mut u8;
-    let data_size = &(0 as i32);
+    let data_size = &mut (0 as i32) as *const i32;
     match unsafe { ws_get_data(resource_id as _, data_ptr, data_size) } {
         0 => Ok(unsafe { Vec::from_raw_parts(*data_ptr, *data_size as _, *data_size as _) }),
         _ => bail!("fail to get data by resource id"),
