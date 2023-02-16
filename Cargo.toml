@@ -1,9 +1,12 @@
 [package]
 name = "ws-sdk"
-version = "0.1.11"
+version = "0.1.12"
 edition = "2021"
 description = "A Rust SDK for writing Webassembly for W3bstream."
 license = "Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/machinefi/w3bstream-wasm-rust-sdk"
+homepage = "https://w3bstream.com/"
 
 [dependencies]
 anyhow = "1.0.69"
