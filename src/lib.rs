@@ -37,6 +37,7 @@
 //! ```
 //!
 pub mod blockchain;
+pub mod crypto;
 pub mod database;
 mod host;
 pub mod log;
