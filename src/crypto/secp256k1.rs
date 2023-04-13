@@ -69,7 +69,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_p256() {
+    fn test_k256() {
         let pvk_hex = "4582b2bf2611f8fe5f7d4e22e20ff19dda42ca630344b33831695c02b616c819";
         let message = "sample";
         let pubkey_hex: &str = "04437203fefbba6922efdfd3b60611f47bbfc7d1472c16506a4ec7f27cec5b3357ec17e87add178dbe6e6eaf3707b2e73c5fa94ed0fb59553ed8ed485e1e6ba3fb";
