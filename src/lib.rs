@@ -37,6 +37,7 @@
 //! ```
 //!
 pub mod blockchain;
+#[cfg(feature = "crypto")]
 pub mod crypto;
 pub mod database;
 mod host;

@@ -1,0 +1,12 @@
+[package]
+name = "crypto"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+ws-sdk =  { path = "../.." , features = ["crypto"]}
+anyhow = "1.0.69"
+hex = "0.4.3"

@@ -1,6 +1,6 @@
 [package]
 name = "ws-sdk"
-version = "0.1.12"
+version = "0.1.13"
 edition = "2021"
 description = "A Rust SDK for writing Webassembly for W3bstream."
 license = "Apache-2.0"
@@ -16,5 +16,8 @@ serde_with = "2.0.1"
 base64 = "0.21.0"
 ecdsa = "0.16.6"
 hex = "0.4.3"
-k256 = "0.13.1"
-p256 =  "0.13.1"
+k256 = { version = "0.13.1", optional = true }
+p256 = { version = "0.13.1", optional = true }
+
+[features]
+crypto = ["k256", "p256"]
