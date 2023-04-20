@@ -38,11 +38,23 @@ pub fn verify_der(pubkey_hex: &str, data_bytes: &[u8], sig_hex: &str) -> Result<
     }
 }
 
-pub fn pubkey(prikey_hex: &str) -> Result<Vec<u8>> {
+/// generate the public key from the private key.
+///
+/// Both public key and private key are in hex form
+///
+/// # Examples
+///
+/// ```no_run
+/// use ws-sdk::crypto::secp256k1::pubkey;
+/// let pvk_hex = "4582b2bf2611f8fe5f7d4e22e20ff19dda42ca630344b33831695c02b616c819";
+/// let pub_hex = pubkey(pvk_hex)?;
+/// // pubkey_hex == "04437203fefbba6922efdfd3b60611f47bbfc7d1472c16506a4ec7f27cec5b3357ec17e87add178dbe6e6eaf3707b2e73c5fa94ed0fb59553ed8ed485e1e6ba3fb";
+/// ```
+pub fn pubkey(prikey_hex: &str) -> Result<String> {
     let signer =
         SigningKey::from_slice(&hex::decode(prikey_hex)?).context("fail to get the private key")?;
     let pbk = signer.verifying_key().to_encoded_point(false);
-    Ok(pbk.to_bytes().to_vec())
+    Ok(hex::encode(pbk.to_bytes().to_vec()))
 }
 
 fn sign_the_message(prikey_hex: &str, data_bytes: &[u8]) -> Result<Signature> {
@@ -74,7 +86,7 @@ mod tests {
         let message = "sample";
         let pubkey_hex: &str = "04437203fefbba6922efdfd3b60611f47bbfc7d1472c16506a4ec7f27cec5b3357ec17e87add178dbe6e6eaf3707b2e73c5fa94ed0fb59553ed8ed485e1e6ba3fb";
 
-        assert_eq!(hex::encode(&pubkey(pvk_hex).unwrap()), pubkey_hex);
+        assert_eq!(&pubkey(pvk_hex).unwrap(), pubkey_hex);
 
         let sig_der = sign_der(pvk_hex, message.as_bytes()).unwrap();
         assert!(verify_der(pubkey_hex, message.as_bytes(), &sig_der).is_ok());

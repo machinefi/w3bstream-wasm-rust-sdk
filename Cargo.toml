@@ -21,3 +21,8 @@ p256 = { version = "0.13.1", optional = true }
 
 [features]
 crypto = ["k256", "p256"]
+
+
+[package.metadata.docs.rs]
+features = ["crypto"]
+all-features = true
