@@ -46,4 +46,10 @@ extern "C" {
         return_ptr: *const *mut u8,
         return_size: *const i32,
     ) -> i32;
+    pub fn ws_send_mqtt_msg(
+        topic_ptr: *const u8,
+        topic_size: i32,
+        payload_ptr: *const u8,
+        payload_size: i32,
+    ) -> i32;
 }
