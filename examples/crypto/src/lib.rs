@@ -15,7 +15,7 @@ static PVK_HEX: &str = "4582b2bf2611f8fe5f7d4e22e20ff19dda42ca630344b33831695c02
 
 fn handle(rid: i32) -> Result<()> {
     let message = rid.to_string();
-    let pubkey_hex = hex::encode(&crypto::secp256k1::pubkey(PVK_HEX)?);
+    let pubkey_hex = crypto::secp256k1::pubkey(PVK_HEX)?;
 
     let sig_der = crypto::secp256k1::sign_der(PVK_HEX, message.as_bytes())?;
     assert!(crypto::secp256k1::verify_der(&pubkey_hex, message.as_bytes(), &sig_der).is_ok());
