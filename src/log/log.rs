@@ -3,11 +3,11 @@ use anyhow::{bail, Result};
 
 #[allow(dead_code)]
 enum LogLevel {
-    Trace = 1,
-    Debug,
-    Info,
+    Error = 2,
     Warn,
-    Error,
+    Info,
+    Debug,
+    Trace,
 }
 
 /// log an info message.
