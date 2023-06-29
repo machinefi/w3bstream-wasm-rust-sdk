@@ -13,4 +13,4 @@
 pub mod kv;
 /// SQL database module.
 pub mod sql;
-mod sql_types;
+pub mod sql_types;
