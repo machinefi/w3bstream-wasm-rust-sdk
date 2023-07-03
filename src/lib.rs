@@ -42,4 +42,5 @@ pub mod crypto;
 pub mod database;
 mod host;
 pub mod log;
+pub mod metrics;
 pub mod stream;

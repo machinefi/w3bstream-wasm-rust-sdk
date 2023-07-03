@@ -53,3 +53,8 @@ extern "C" {
         payload_size: i32,
     ) -> i32;
 }
+
+#[link(wasm_import_module = "stat")]
+extern "C" {
+    pub fn ws_submit_metrics(ptr: *const u8, size: i32) -> i32;
+}
