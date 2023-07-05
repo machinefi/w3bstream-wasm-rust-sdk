@@ -8,6 +8,8 @@ use serde_json::Value;
 ///
 /// ```no_run
 /// use ws-sdk::metrics::submit_metrics
+/// use serde_json::json;
+///
 /// let value = json!({
 ///     "temp": 90,
 /// });

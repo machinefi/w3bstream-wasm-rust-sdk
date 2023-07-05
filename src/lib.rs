@@ -11,6 +11,7 @@
 //!  * [database]: Storing or accessing the data in the database
 //!  * [blockchain]: Writing or reading the contract on the blockchain
 //!  * [logging][log]: Logging information or errors
+//!  * [metrics]: Emit metrics inside wasm
 //!
 //! Guide level documentation is found on the [website].
 //!
@@ -20,6 +21,7 @@
 //! [database]: crate::database
 //! [blockchain]: crate::blockchain
 //! [log]: crate::log
+//! [metrics]: crate::metrics
 //! [website]: https://docs.w3bstream.com/
 //!
 //! # Examples
