@@ -38,6 +38,7 @@
 //! }
 //! ```
 //!
+pub mod api;
 pub mod blockchain;
 #[cfg(feature = "crypto")]
 pub mod crypto;
