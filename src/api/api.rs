@@ -42,7 +42,12 @@ pub fn api_call(req: Request<Vec<u8>>) -> Result<String> {
     let header = req
         .headers()
         .iter()
-        .map(|(k, v)| (k.to_string(), vec![v.to_str().unwrap().to_string()]))
+        .map(|(k, v)| {
+            (
+                capitalize(&k.to_string()),
+                vec![v.to_str().unwrap().to_string()],
+            )
+        })
         .collect();
     let base64encoded = general_purpose::STANDARD.encode(req.body());
     let new_obj = HttpRequest {
@@ -52,15 +57,19 @@ pub fn api_call(req: Request<Vec<u8>>) -> Result<String> {
         Body: base64encoded,
     };
     let obj_str = serde_json::to_string(&new_obj)?;
-
-    // Ok(obj_str)
-
     let data_ptr = &mut (0 as i32) as *const _ as *const *mut u8;
     let data_size = &mut (0 as i32) as *const i32;
-
     match unsafe { ws_api_call(obj_str.as_ptr(), obj_str.len() as _, data_ptr, data_size) } {
         0 => Ok(unsafe { String::from_raw_parts(*data_ptr, *data_size as _, *data_size as _) }),
         _ => bail!("fail to call the api"),
+    }
+}
+
+fn capitalize(s: &str) -> String {
+    let mut c = s.chars();
+    match c.next() {
+        None => String::new(),
+        Some(f) => f.to_uppercase().collect::<String>() + c.as_str(),
     }
 }
 

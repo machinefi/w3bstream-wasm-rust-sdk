@@ -13,7 +13,12 @@ pub extern "C" fn start(rid: i32) -> i32 {
 }
 
 fn handle(rid: i32) -> Result<()> {
-    let json_str = "{\"chainName\":\"iotex-testnet\",\"hash\":\"fcaf377ff3cc785d60c58de7e121d6a2e79e1c58c189ea8641f3ea61f7605285\"}";
+    let json_str = r#"
+    {
+        "chainName":"iotex-testnet",
+        "hash":"fcaf377ff3cc785d60c58de7e121d6a2e79e1c58c189ea8641f3ea61f7605285"
+    }
+    "#;
 
     let request = Request::builder()
         .method("GET")
